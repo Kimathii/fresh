@@ -1,65 +1,77 @@
+// utils/generateReceipt.js
 import companies from "../data/companies";
 
-// helper: random integer
-const getRandomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
-
-// helper: pick random array item
-const getRandomItem = (array) =>
-  array[Math.floor(Math.random() * array.length)];
-
-const generateOrderNumber = () => {
-  return `#${getRandomInt(10000, 99999)}`;
+// State tax rates
+const STATE_TAX = {
+  KY: 0.06,
+  IL: 0.0625,
+  NY: 0.04,
+  WA: 0.065,
+  FL: 0.06,
+  CT: 0.0635,
+  TX: 0.0625,
+  MI: 0.06,
+  CA: 0.0725,
+  OH: 0.0575,
+  GA: 0.04,
+  MA: 0.0625
 };
 
-const formatDate = () => {
-  const now = new Date();
-  return now.toLocaleString();
-};
+// ---------------- HELPERS ----------------
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const getRandomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const priceWithVariance = (price) => +(price + (Math.random() * 4 - 2)).toFixed(2);
 
-const generateItems = (menu) => {
-  const itemCount = getRandomInt(2, 5);
-  const selectedItems = [];
+const generateOrderNumber = () => `#${getRandomInt(10000, 99999)}`;
+const formatDate = () => new Date().toLocaleString();
+
+// ---------------- GENERATE ITEMS ----------------
+const generateItems = (products) => {
+  const itemCount = getRandomInt(1, 5);
+  const items = [];
 
   for (let i = 0; i < itemCount; i++) {
-    const menuItem = getRandomItem(menu);
+    const product = getRandomItem(products);
     const quantity = getRandomInt(1, 3);
+    const price = priceWithVariance(product.price);
 
-    selectedItems.push({
-      name: menuItem.name,
-      price: menuItem.price,
+    items.push({
+      name: product.name,
       quantity,
-      total: menuItem.price * quantity
+      price,
+      total: +(price * quantity).toFixed(2)
     });
   }
 
-  return selectedItems;
+  return items;
 };
 
-const calculateSubtotal = (items) => {
-  return items.reduce((sum, item) => sum + item.total, 0);
-};
-
+// ---------------- GENERATE RECEIPT ----------------
 const generateReceipt = () => {
-  const company = getRandomItem(companies);
-  const address = getRandomItem(company.addresses);
-  const items = generateItems(company.menu);
-  const subtotal = calculateSubtotal(items);
+  const brand = getRandomItem(companies);
 
-  // simple tax simulation (10%)
-  const tax = subtotal * 0.1;
-  const total = subtotal + tax;
+  // Bacardi Ocho: pick random store type if store undefined
+  const store = brand.store || getRandomItem(brand.stores);
+  const location = getRandomItem(brand.locations);
+
+  const items = generateItems(brand.products);
+  const subtotal = +items.reduce((sum, item) => sum + item.total, 0).toFixed(2);
+
+  const taxRate = STATE_TAX[location.state] || 0.06;
+  const tax = +(subtotal * taxRate).toFixed(2);
 
   return {
-    company: company.name,
-    slogan: company.slogan,
-    phone: company.phone,
-    address,
+    company: brand.name,
+    slogan: brand.slogan,
+    store,
+    phone: brand.phone || "",
+    address: location.address,
     orderNumber: generateOrderNumber(),
     date: formatDate(),
     items,
     subtotal: subtotal.toFixed(2),
-    total: total.toFixed(2)
+    tax: tax.toFixed(2),
+    total: +(subtotal + tax).toFixed(2)
   };
 };
 

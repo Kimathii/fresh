@@ -1,9 +1,9 @@
 // data/companies.js
-// Only 3 brands: Ekunaba Pet Food, Pure Encapsulations, Bacardi Ocho
+// Only 3 brands: Eukanuba Pet Food, Pure Encapsulations, Bacardi Ocho
 
 const companies = [
   {
-    name: "Ekunaba Pet Food",
+    name: "Eukanuba Pet Food",
     store: "Tractor Supply Co",
     slogan: "Nutrition That Performs",
     phone: "(502) 874-8000",

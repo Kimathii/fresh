@@ -10,7 +10,7 @@ const Receipt = () => {
   };
 
 const LOGO_MAP = {
-  "Ekunaba Pet Food": "/logos/ekunaba.png",
+  "Eukanuba Pet Food": "/logos/ekunaba.png",
   "Pure Encapsulations": "/logos/pure.png",
   "Bacardi Ocho": "/logos/bacardi.png"
 };

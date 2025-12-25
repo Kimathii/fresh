@@ -9,17 +9,23 @@ const Receipt = () => {
     setReceipt(generateReceipt());
   };
 
+const LOGO_MAP = {
+  "Ekunaba Pet Food": "/logos/ekunaba.png",
+  "Pure Encapsulations": "/logos/pure.png",
+  "Bacardi Ocho": "/logos/bacardi.png"
+};
+
   return (
     <div className="receipt">
 
       {/* LOGO GOES HERE */}
       <div className="logo-container">
-        <img
-          src="/Target.jpg"
-          alt="Company Logo"
-          className="receipt-logo"
-        />
-      </div>
+  <img
+    src={LOGO_MAP[receipt.company]}
+    alt={`${receipt.company} logo`}
+    className="company-logo"
+  />
+</div>
 
       <h1>{receipt.company}</h1>
       <p className="slogan">{receipt.slogan}</p>

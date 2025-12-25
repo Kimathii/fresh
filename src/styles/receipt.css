@@ -17,17 +17,31 @@ body {
   color: #000;
 }
 
+/* LOGO */
+.receipt .logo-container {
+  text-align: center;
+  /* margin-bottom: 2px; */
+}
+
+.receipt .receipt-logo {
+  max-width: 70px;
+  max-height: 50px;
+  object-fit: contain;
+  display: inline-block;
+}
+
 /* HEADINGS */
 .receipt h1 {
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 /* TEXT */
 .receipt .slogan {
-font-style: italic;
-font-size: 0.85rem;
+  font-style: italic;
+  font-size: 0.85rem;
   text-align: center;
   margin: 0;
 }
@@ -102,7 +116,7 @@ font-size: 0.85rem;
 .receipt .barcode {
   height: 30px;
   width: 120px;
-  border-radius: 4px;            /* soft edges */
+  border-radius: 4px;
   background: repeating-linear-gradient(
     to right,
     #000 0px,

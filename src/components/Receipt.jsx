@@ -17,7 +17,8 @@ const LOGO_MAP = {
   "The Vitamin Shoppe": "/logos/vitamin.png",
   "Amazon": "/logos/amazon.png",
   "Sam's Club": "/logos/sams.png",
-  "Petco": "/logos/petco.png"
+  "Petco": "/logos/petco.png",
+  "Target": "/logos/Target.jpg"
 };
 
   return (

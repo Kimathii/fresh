@@ -22,8 +22,10 @@ const LOGO_MAP = {
 };
 
   return (
-    <div className="receipt">
-
+<div
+  className="receipt"
+  onDoubleClick={handleGenerateNew}
+>
       {/* LOGO GOES HERE */}
       <div className="logo-container">
   <img
@@ -77,9 +79,9 @@ const LOGO_MAP = {
 
       <p className="thank-you">Thank you for your visit!</p>
 
-      <button onClick={handleGenerateNew}>
+      {/* <button onClick={handleGenerateNew}>
         Generate New Receipt
-      </button>
+      </button> */}
     </div>
   );
 };

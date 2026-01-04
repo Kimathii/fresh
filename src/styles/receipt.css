@@ -1,18 +1,18 @@
 body {
   background: #f4f4f4;
   font-family: Arial, Helvetica, sans-serif;
-  padding-left: 45px;
-  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 /* RECEIPT CONTAINER */
 .receipt {
-  width: 300px;
-  max-width: 92vw;              
+   width: 260px; 
+  max-width: 92vw;
   background: #fff;
-  margin: 10px auto;
-  padding: 10px;
-  border-radius: 12px;           
+  margin: 40px auto;
+  padding: 12px;
+  border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   color: #000;
 }
@@ -20,11 +20,11 @@ body {
 /* LOGO */
 .receipt .logo-container {
   text-align: center;
-  /* margin-bottom: 2px; */
+  margin-top: 20px;
 }
 
 .receipt .receipt-logo {
-  max-width: 70px;
+  max-width: 60px;
   max-height: 50px;
   object-fit: contain;
   display: inline-block;
@@ -79,23 +79,48 @@ body {
 /* TOTALS */
 .receipt .totals {
   font-size: 0.95rem;
+  margin-top: 2px;
+  
+  
 }
-
+.receipt .totals p {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+}
+.receipt .totals p:last-child {
+  margin-top: 8px;
+}
 .receipt .totals strong {
   font-size: 1.05rem;
 }
 
+.receipt .section-title {
+  text-align: center;
+  font-size: 0.85rem;
+  margin: 0 0;
+  font-weight: bold;
+}
+
+.receipt .payments p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin: 2px 0;
+}
+
+
 /* THANK YOU */
 .receipt .thank-you {
   text-align: center;
-  margin-top: 8px;
+  margin-top: 4px;
   font-size: 0.9rem;
 }
 
 /* BUTTON */
 .receipt button {
   width: 100%;
-  margin-top: 16px;
+  margin-top: 20px;
   padding: 8px;
   border: none;
   border-radius: 8px;          
@@ -118,7 +143,6 @@ body {
 .receipt .barcode {
   height: 30px;
   width: 120px;
-  border-radius: 4px;
   background: repeating-linear-gradient(
     to right,
     #000 0px,
@@ -139,7 +163,7 @@ body {
     #fff 17px
   );
   background-size: 180px 100%;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   image-rendering: pixelated;
   display: inline-block;
 }

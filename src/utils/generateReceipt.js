@@ -50,7 +50,6 @@ const generateItems = (products) => {
 const generateReceipt = () => {
   const brand = getRandomItem(companies);
 
-  // Bacardi Ocho: pick random store type if store undefined
   const store = brand.store || getRandomItem(brand.stores);
   const location = getRandomItem(brand.locations);
 
@@ -59,6 +58,25 @@ const generateReceipt = () => {
 
   const taxRate = STATE_TAX[location.state] || 0.06;
   const tax = +(subtotal * taxRate).toFixed(2);
+  const total = +(subtotal + tax).toFixed(2);
+
+  // --------- PAYMENT METHODS (ADDED ONLY) ---------
+  let cash = 0;
+  let card = 0;
+  let other = 0;
+
+  const paymentType = getRandomInt(1, 3);
+
+  if (paymentType === 1) {
+    card = total;
+  } else if (paymentType === 2) {
+    cash = +(Math.random() * total).toFixed(2);
+    card = +(total - cash).toFixed(2);
+  } else {
+    card = +(Math.random() * total).toFixed(2);
+    other = +(total - card).toFixed(2);
+  }
+  // -----------------------------------------------
 
   return {
     company: brand.name,
@@ -71,7 +89,12 @@ const generateReceipt = () => {
     items,
     subtotal: subtotal.toFixed(2),
     tax: tax.toFixed(2),
-    total: +(subtotal + tax).toFixed(2)
+    total,
+    payments: {
+      cash,
+      card,
+      other
+    }
   };
 };
 

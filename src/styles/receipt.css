@@ -100,7 +100,7 @@ font-size: 18px;
 .receipt .totals {
   font-size: 0.95rem;
   margin-top: 2px;
-  text-align: right;
+  text-align: center;
   
 }
 .receipt .totals p {

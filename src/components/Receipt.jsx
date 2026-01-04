@@ -28,16 +28,18 @@ const LOGO_MAP = {
 
   return (
 <div
-  className="receipt"
+  className={`receipt ${receipt.company === "Petco" ? "petco" : ""}`}
   onDoubleClick={handleGenerateNew}
 >
+
       {/* LOGO GOES HERE */}
       <div className="logo-container">
   <img
-    src={LOGO_MAP[receipt.company]}
-    alt={`${receipt.company} logo`}
-    className="company-logo"
-  />
+  src={LOGO_MAP[receipt.company]}
+  alt={`${receipt.company} logo`}
+  className="receipt-logo"
+/>
+
 </div>
 
       {/* <h1>{receipt.company}</h1> */}
@@ -69,32 +71,53 @@ const LOGO_MAP = {
       <hr />
 
       <div className="totals">
-  <p>Subtotal: ${Number(receipt.subtotal).toFixed(2)}</p>
-<p>Tax: ${Number(receipt.tax).toFixed(2)}</p>
-<p>
-  <strong>Total: ${Number(receipt.total).toFixed(2)}</strong>
-</p>
+  <p>
+    <span>Subtotal</span>
+    <span className="amount">
+      ${Number(receipt.subtotal).toFixed(2)}
+    </span>
+  </p>
 
+  <p>
+    <span>Tax</span>
+    <span className="amount">
+      ${Number(receipt.tax).toFixed(2)}
+    </span>
+  </p>
+
+  <p>
+    <strong>TOTAL</strong>
+    <strong className="amount">
+      ${Number(receipt.total).toFixed(2)}
+    </strong>
+  </p>
 </div>
+
 
 
       <hr />
 
-      <div className="payments">
-  <p className="section-title">Payment</p>
-
-  {receipt.payments.cash > 0 && (
-    <p>Cash: ${receipt.payments.cash.toFixed(2)}</p>
-  )}
+    <div className="payments">
+  <p className="section-title"></p>
 
   {receipt.payments.card > 0 && (
-    <p>Card: ${receipt.payments.card.toFixed(2)}</p>
-  )}
+    <>
+      <p>CREDIT CARD AUTH ${receipt.payments.card.toFixed(2)}</p>
+      <p>
+        {receipt.cardType} •••• {receipt.cardLast4}
+      </p>
+      <p>{receipt.approvalText}</p>
 
-  {receipt.payments.other > 0 && (
-    <p>Other: ${receipt.payments.other.toFixed(2)}</p>
+      {/* Pick 0–2 of the lines below — depending on how "busy" you want it */}
+      <p>AUTH# {receipt.authCode}</p>
+      {/* <p>Ref: 00{receipt.cardLast4}</p> */}
+      {/* <p>Terminal: T{receipt.orderNumber.slice(1)}</p> */}
+    </>
   )}
 </div>
+
+
+
 
 <hr />
 

@@ -23,7 +23,14 @@ const getRandomItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const priceWithVariance = (price) => +(price + (Math.random() * 4 - 2)).toFixed(2);
 
 const generateOrderNumber = () => `#${getRandomInt(10000, 99999)}`;
-const formatDate = () => new Date().toLocaleString();
+const formatDate = () => new Date().toLocaleString('en-US', {
+  weekday: 'short',
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+});
 
 // ---------------- GENERATE ITEMS ----------------
 const generateItems = (products) => {
@@ -50,33 +57,42 @@ const generateItems = (products) => {
 const generateReceipt = () => {
   const brand = getRandomItem(companies);
 
-  const store = brand.store || getRandomItem(brand.stores);
-  const location = getRandomItem(brand.locations);
+  const store = brand.store || getRandomItem(brand.stores || []);
+  const location = getRandomItem(brand.locations || []);
 
-  const items = generateItems(brand.products);
+  const items = generateItems(brand.products || []);
+
   const subtotal = +items.reduce((sum, item) => sum + item.total, 0).toFixed(2);
 
   const taxRate = STATE_TAX[location.state] || 0.06;
   const tax = +(subtotal * taxRate).toFixed(2);
   const total = +(subtotal + tax).toFixed(2);
 
-  // --------- PAYMENT METHODS (ADDED ONLY) ---------
-  let cash = 0;
-  let card = 0;
-  let other = 0;
+  // Always digital card payment
+  const card = total;
 
-  const paymentType = getRandomInt(1, 3);
+  // Random card details
+  const cardBrands = ["VISA", "MASTERCARD", "AMERICAN EXPRESS", "DISCOVER"];
+  const cardType = getRandomItem(cardBrands);
+  const cardLast4 = getRandomInt(1000, 9999);
 
-  if (paymentType === 1) {
-    card = total;
-  } else if (paymentType === 2) {
-    cash = +(Math.random() * total).toFixed(2);
-    card = +(total - cash).toFixed(2);
-  } else {
-    card = +(Math.random() * total).toFixed(2);
-    other = +(total - card).toFixed(2);
-  }
-  // -----------------------------------------------
+  // Random approval text
+  const approvalPhrases = [
+    "EMV Chip | Approved",
+    "Chip | Approved",
+    "EMV Contact | Approved",
+    "Contactless | Approved",
+    "EMV Chip-Offline | Approved",
+    "Approved - EMV",
+  ];
+  const approvalText = getRandomItem(approvalPhrases);
+
+  // Random authorization code
+  const authCode = (() => {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const prefix = getRandomItem(["A", "T", "X", "P", ""]);
+    return prefix + getRandomInt(10000, 99999) + getRandomItem(letters);
+  })();
 
   return {
     company: brand.name,
@@ -91,10 +107,14 @@ const generateReceipt = () => {
     tax: tax.toFixed(2),
     total,
     payments: {
-      cash,
       card,
-      other
-    }
+      cash: 0,
+      other: 0
+    },
+    cardType,
+    cardLast4,
+    approvalText,
+    authCode
   };
 };
 

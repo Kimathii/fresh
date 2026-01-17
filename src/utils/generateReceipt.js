@@ -26,6 +26,9 @@ const generateOrderNumber = () => `#${getRandomInt(10000, 99999)}`;
 const formatDate = () => {
   const d = new Date();
 
+  // move clock back 2 hours
+  d.setHours(d.getHours() - 2);
+
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const day = String(d.getDate()).padStart(2, "0");
   const year = d.getFullYear();
@@ -35,11 +38,12 @@ const formatDate = () => {
   const ampm = hours >= 12 ? "PM" : "AM";
 
   hours = hours % 12;
-  hours = hours ? hours : 12; // 12 instead of 0
+  hours = hours ? hours : 12;
   hours = String(hours).padStart(2, "0");
 
   return `${month}/${day}/${year} ${hours}:${minutes} ${ampm}`;
 };
+
 
 
 

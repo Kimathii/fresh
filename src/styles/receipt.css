@@ -2,8 +2,8 @@ body {
   background: #f4f4f4;
   font-family: "VT323", monospace;
   font-size: 18px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 50px;
+  padding-bottom: 45px;
 }
 
 /* RECEIPT CONTAINER */
@@ -37,7 +37,7 @@ body {
 /* LOGO */
 .receipt .logo-container {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 0px;
 }
 

@@ -48,7 +48,70 @@ const formatDate = () => {
 
 
 // ---------------- GENERATE ITEMS ----------------
-const generateItems = (products) => {
+const generateItems = (products, brandName) => {
+  // Check if this is the "Vital Proteins" Walmart by looking for a characteristic product
+  // "Vital Proteins Gummies" is the first item in the Vital Proteins list.
+  const isVitalProteinsWalmart = brandName === "Walmart" && products.some(p => p.name.includes("Vital Proteins"));
+
+  // WALMART SPECIFIC LOGIC (Only for the first Walmart type)
+  if (isVitalProteinsWalmart) {
+    // Top 4 products (indices 0-3)
+    const topGroup = products.slice(0, 4);
+    // Bottom 5 products (indices 4+)
+    const bottomGroup = products.slice(4);
+
+    const items = [];
+
+    // 1. Select 3 random distinct items from topGroup with FIXED quantity of 3
+    const topSelection = [];
+    const topCopy = [...topGroup];
+    for (let i = 0; i < 3; i++) {
+      if (topCopy.length === 0) break;
+      const rndIndex = getRandomInt(0, topCopy.length - 1);
+      topSelection.push(topCopy[rndIndex]);
+      topCopy.splice(rndIndex, 1);
+    }
+
+    topSelection.forEach(product => {
+      const itemNumber = getRandomInt(10000000, 99999999);
+      const quantity = 3; // Fixed quantity
+      const price = priceWithVariance(product.price);
+      items.push({
+        itemNumber,
+        name: product.name,
+        quantity,
+        price,
+        total: +(price * quantity).toFixed(2)
+      });
+    });
+
+    // 2. Select 2 random distinct items from bottomGroup with RANDOM quantity (1-3)
+    const bottomSelection = [];
+    const bottomCopy = [...bottomGroup];
+    for (let i = 0; i < 2; i++) {
+      if (bottomCopy.length === 0) break;
+      const rndIndex = getRandomInt(0, bottomCopy.length - 1);
+      bottomSelection.push(bottomCopy[rndIndex]);
+      bottomCopy.splice(rndIndex, 1);
+    }
+
+    bottomSelection.forEach(product => {
+      const itemNumber = getRandomInt(10000000, 99999999);
+      const quantity = getRandomInt(1, 3); // Random quantity
+      const price = priceWithVariance(product.price);
+      items.push({
+        itemNumber,
+        name: product.name,
+        quantity,
+        price,
+        total: +(price * quantity).toFixed(2)
+      });
+    });
+
+    return items;
+  }
+
+  // DEFAULT LOGIC (for other companies AND the C4/Xtend Walmart)
   const itemCount = getRandomInt(4, 8);
   const items = [];
 
@@ -78,7 +141,7 @@ const generateReceipt = () => {
   const store = brand.store || getRandomItem(brand.stores || []);
   const location = getRandomItem(brand.locations || []);
 
-  const items = generateItems(brand.products || []);
+  const items = generateItems(brand.products || [], brand.name);
 
   const subtotal = +items.reduce((sum, item) => sum + item.total, 0).toFixed(2);
 

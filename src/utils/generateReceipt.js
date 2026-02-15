@@ -53,6 +53,9 @@ const generateItems = (products, brandName) => {
   // "Vital Proteins Gummies" is the first item in the Vital Proteins list.
   const isVitalProteinsWalmart = brandName === "Walmart" && products.some(p => p.name.includes("Vital Proteins"));
 
+  // Check if this is Sam's Club (has VetIQ and Liquid IV products)
+  const isSamsClub = brandName === "Sam's Club";
+
   // WALMART SPECIFIC LOGIC (Only for the first Walmart type)
   if (isVitalProteinsWalmart) {
     // Top 4 products (indices 0-3)
@@ -111,12 +114,73 @@ const generateItems = (products, brandName) => {
     return items;
   }
 
+  // SAM'S CLUB SPECIFIC LOGIC (VetIQ x3, Liquid IV x5)
+  if (isSamsClub) {
+    const itemCount = getRandomInt(4, 8);
+    const items = [];
+    const availableProducts = [...products]; // Create a copy to track available products
+    let hasVetIQ = false; // Track if we've already added a VetIQ product
+    let hasLiquidIV = false; // Track if we've already added a Liquid IV product
+
+    for (let i = 0; i < itemCount; i++) {
+      if (availableProducts.length === 0) break; // No more products available
+
+      const randomIndex = getRandomInt(0, availableProducts.length - 1);
+      const product = availableProducts[randomIndex];
+
+      // Check if this product is VetIQ or Liquid IV
+      const isVetIQ = product.name.includes("VET-IQ") || product.name.includes("VetIQ");
+      const isLiquidIV = product.name.includes("Liquid I.V");
+
+      // Skip if we already have a product from this category
+      if ((isVetIQ && hasVetIQ) || (isLiquidIV && hasLiquidIV)) {
+        availableProducts.splice(randomIndex, 1); // Remove from pool but don't add to receipt
+        i--; // Don't count this iteration
+        continue;
+      }
+
+      availableProducts.splice(randomIndex, 1); // Remove selected product from available pool
+
+      const itemNumber = getRandomInt(10000000, 99999999);
+
+      // Set specific quantities for VetIQ and Liquid IV products
+      let quantity;
+      if (isVetIQ) {
+        quantity = 3; // VetIQ always x3
+        hasVetIQ = true; // Mark that we've added a VetIQ product
+      } else if (isLiquidIV) {
+        quantity = 5; // Liquid IV always x5
+        hasLiquidIV = true; // Mark that we've added a Liquid IV product
+      } else {
+        quantity = getRandomInt(1, 3); // Random for other products
+      }
+
+      const price = priceWithVariance(product.price);
+
+      items.push({
+        itemNumber,
+        name: product.name,
+        quantity,
+        price,
+        total: +(price * quantity).toFixed(2)
+      });
+    }
+
+    return items;
+  }
+
   // DEFAULT LOGIC (for other companies AND the C4/Xtend Walmart)
   const itemCount = getRandomInt(4, 8);
   const items = [];
+  const availableProducts = [...products]; // Create a copy to track available products
 
   for (let i = 0; i < itemCount; i++) {
-    const product = getRandomItem(products);
+    if (availableProducts.length === 0) break; // No more products available
+
+    const randomIndex = getRandomInt(0, availableProducts.length - 1);
+    const product = availableProducts[randomIndex];
+    availableProducts.splice(randomIndex, 1); // Remove selected product from available pool
+
     const quantity = getRandomInt(1, 3);
     const price = priceWithVariance(product.price);
 

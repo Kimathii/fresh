@@ -264,33 +264,31 @@ const companies = [
   // ]
   //   },
 
-  // {
-  //   store: "Coffee & Beverages",
-  //   name: "Sam's Club",
-  //   slogan: "Great brands. Members. Savings.",
-  //   phone: "(888) 746-7726",
-  //   locations: [
-  //     { address: "1225 Concord Ave, Concord, CA 94520", state: "CA" },
-  //     { address: "8250 Power Inn Rd, Sacramento, CA 95828", state: "CA" },
-  //     { address: "6336 College Grove Way, San Diego, CA 92115", state: "CA" },
-  //          { address: "150 E 42nd St, New York, NY 10017", state: "NY" },
-  //       { address: "250 Summer St, Boston, MA 02210", state: "MA" },
-  //       { address: "600 N Michigan Ave, Chicago, IL 60611", state: "IL" },
-  //     { address: "7147 Greenback Ln, Citrus Heights, CA 95621", state: "CA" }
-  //   ],
-  //   products: [
-  //     // { name: "Victor Allen’s Signature Medium-Dark Roast Coffee Pods Variety Pack, 60 ct", price: 14.98 },
-  //     // { name: "Victor Allen’s Premium Coffee Pods Colombia Blend, 15 Pods", price: 4.99 },
-  //     // { name: "Victor Allen’s Premium Coffee Pods Espresso Roast, 15 Pods", price: 4.99 },
-  //     { name: "Twinings English Breakfast Tea (100-count box)", price: 15.99 },
-  //     // { name: "Victor Allen’s Premium Coffee Pods Brazil Blend, 15 Pods", price: 4.99 },
-  //     // { name: "Victor Allen’s Flavored Coffee Pods Variety Pack (French Vanilla/Caramel Macchiato/Hazelnut), 60 ct", price: 12.99 },
-  //     { name: "Victor Allen’s Signature Coffee Pods Variety Pack (Morning Blend/French Roast/Donut Shop), 60 ct", price: 17.99 },
-  //     // { name: "Victor Allen’s Signature Dark Roast Coffee Pods, 12 ct", price: 6.99 },
-  //     // { name: "Victor Allen’s Signature Medium Roast Coffee Pods, 12 ct", price: 6.49 },
-  //     { name: "Victor Allen’s Signature Light Roast Coffee Pods, 12 ct", price: 7.49 }
-  //   ]
-  // },
+  {
+    store: "Coffee & Beverages",
+    name: "Sam's Club",
+    slogan: "Great brands. Members. Savings.",
+    phone: "(888) 746-7726",
+    locations: [
+      { address: "1225 Concord Ave, Concord, CA 94520", state: "CA" },
+      { address: "8250 Power Inn Rd, Sacramento, CA 95828", state: "CA" },
+      { address: "6336 College Grove Way, San Diego, CA 92115", state: "CA" },
+           { address: "150 E 42nd St, New York, NY 10017", state: "NY" },
+        { address: "250 Summer St, Boston, MA 02210", state: "MA" },
+        { address: "600 N Michigan Ave, Chicago, IL 60611", state: "IL" },
+      { address: "7147 Greenback Ln, Citrus Heights, CA 95621", state: "CA" }
+    ],
+    products: [
+      { name: "VET-IQ Hip and Joint, 180ct", price: 27.99 },
+      { name: "VET-IQ Pro-Biotic, 60 ct", price: 17.99 },
+      { name: "VET-IQ Multivitamin, 60 ct", price: 15.49 },
+
+      { name: "Liquid I.V Hydration Multiplier Variety Pack, 30ct", price: 27.99},
+      { name: "Liquid I.V Sugar-Free Variety Pack, 30ct", price: 27.99},
+      { name: "Liquid I.V Sugar-Free Energy Variety Pack, 26ct", price: 27.99},
+      { name: "Liquid I.V Popsicle Firecracker, 30ct", price: 27.99},
+    ]
+  },
 
   // {
   //   store: "Dog Food",

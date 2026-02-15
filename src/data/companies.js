@@ -90,7 +90,7 @@ const companies = [
   {
     store: "Walmart",
     name: "Walmart",
-    slogan: "Walmart.com",
+    slogan: "",
     phone: "(800) 925-6278",
     locations: [
       { address: "111 Yale St, Houston, TX 77007", state: "TX", zip: "77007" },
@@ -151,7 +151,7 @@ const companies = [
   {
     store: "Walmart",
     name: "Walmart",
-    slogan: "Walmart.com",
+    slogan: "",
     phone: "(407) 734-7200",
     locations: [
       { address: "450 S Orange Ave, Orlando, FL 32801", state: "FL" },

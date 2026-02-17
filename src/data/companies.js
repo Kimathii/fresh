@@ -283,10 +283,9 @@ const companies = [
       { name: "VET-IQ Pro-Biotic, 60 ct", price: 17.99 },
       { name: "VET-IQ Multivitamin, 60 ct", price: 15.49 },
 
-      { name: "Liquid I.V Hydration Multiplier Variety Pack, 30ct", price: 27.99},
-      { name: "Liquid I.V Sugar-Free Variety Pack, 30ct", price: 27.99},
-      { name: "Liquid I.V Sugar-Free Energy Variety Pack, 26ct", price: 27.99},
-      { name: "Liquid I.V Popsicle Firecracker, 30ct", price: 27.99},
+      { name: "Liquid I.V Electrolyte Drink Mix,(Popsicle Firecracker) 30ct", price: 27.99},
+      { name: "Liquid I.V Electrolyte Drink Mix,(Sugar-Free Energy Variety Pack) 30ct", price: 27.99},
+      { name: "Liquid I.V Electrolyte Drink Mix,(Hydration Multiplier Variety Pack) 30ct", price: 27.99},
     ]
   },
 

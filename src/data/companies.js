@@ -106,7 +106,7 @@ const companies = [
       { address: "2465 Hempstead Turnpike, East Meadow, NY 11554", state: "NY", zip: "11554" },
     ],
     products: [
-      { name: "One Touch Verio Reflect", price: 29.99 },
+      { name: "OneTouch Verio Reflect", price: 29.99 },
       { name: "Orgain Organic Protein Powder (Chocolate/Vanilla)", price: 21.97 },
       { name: "IBgard Abdominal Comfort Digestive Supplement", price: 39.99 },
       { name: "Garden of Life Raw Organic Protein Powder", price: 35.69 },

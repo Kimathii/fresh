@@ -127,22 +127,22 @@ const companies = [
 
 
 
-  
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
+  // 
 
 
 
@@ -167,6 +167,7 @@ const companies = [
     products: [
       { name: "Quilted Northern Toilet Paper", price: 26.99 },
       { name: "PetArmor Extend Flea and Tick Collar (For Cats)", price: 44.99 },
+      { name: "PetArmor Extend Flea and Tick Collar (For Dogs)", price: 44.99 },
     ]
   },
 
@@ -242,9 +243,9 @@ const companies = [
       { address: "1225 Concord Ave, Concord, CA 94520", state: "CA" },
       { address: "8250 Power Inn Rd, Sacramento, CA 95828", state: "CA" },
       { address: "6336 College Grove Way, San Diego, CA 92115", state: "CA" },
-           { address: "150 E 42nd St, New York, NY 10017", state: "NY" },
-        { address: "250 Summer St, Boston, MA 02210", state: "MA" },
-        { address: "600 N Michigan Ave, Chicago, IL 60611", state: "IL" },
+      { address: "150 E 42nd St, New York, NY 10017", state: "NY" },
+      { address: "250 Summer St, Boston, MA 02210", state: "MA" },
+      { address: "600 N Michigan Ave, Chicago, IL 60611", state: "IL" },
       { address: "7147 Greenback Ln, Citrus Heights, CA 95621", state: "CA" }
     ],
     products: [
@@ -252,9 +253,9 @@ const companies = [
       { name: "VET-IQ Pro-Biotic, 60 ct", price: 17.99 },
       { name: "VET-IQ Multivitamin, 60 ct", price: 15.49 },
 
-      { name: "Liquid I.V Electrolyte Drink Mix,(Popsicle Firecracker) 30ct", price: 27.99},
-      { name: "Liquid I.V Electrolyte Drink Mix,(Sugar-Free Energy Variety Pack) 30ct", price: 27.99},
-      { name: "Liquid I.V Electrolyte Drink Mix,(Hydration Multiplier Variety Pack) 30ct", price: 27.99},
+      { name: "Liquid I.V Electrolyte Drink Mix,(Popsicle Firecracker) 30ct", price: 27.99 },
+      { name: "Liquid I.V Electrolyte Drink Mix,(Sugar-Free Energy Variety Pack) 30ct", price: 27.99 },
+      { name: "Liquid I.V Electrolyte Drink Mix,(Hydration Multiplier Variety Pack) 30ct", price: 27.99 },
     ]
   },
 

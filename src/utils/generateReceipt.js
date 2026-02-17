@@ -49,9 +49,12 @@ const formatDate = () => {
 
 // ---------------- GENERATE ITEMS ----------------
 const generateItems = (products, brandName) => {
-  // Check if this is the "Vital Proteins" Walmart by looking for a characteristic product
-  // "Vital Proteins Gummies" is the first item in the Vital Proteins list.
-  const isVitalProteinsWalmart = brandName === "Walmart" && products.some(p => p.name.includes("Vital Proteins"));
+  // Check if this is the "One Touch" Walmart by looking for a characteristic product
+  // "One Touch Verio Reflect" is the first item in the One Touch list.
+  const isVitalProteinsWalmart = brandName === "Walmart" && products.some(p => p.name.includes("One Touch"));
+
+  // Check if this is the "Quilted Northern/PetArmor" Walmart
+  const isQuiltedPetArmorWalmart = brandName === "Walmart" && products.some(p => p.name.includes("Quilted Northern"));
 
   // Check if this is Sam's Club (has VetIQ and Liquid IV products)
   const isSamsClub = brandName === "Sam's Club";
@@ -101,6 +104,27 @@ const generateItems = (products, brandName) => {
     bottomSelection.forEach(product => {
       const itemNumber = getRandomInt(10000000, 99999999);
       const quantity = getRandomInt(1, 3); // Random quantity
+      const price = priceWithVariance(product.price);
+      items.push({
+        itemNumber,
+        name: product.name,
+        quantity,
+        price,
+        total: +(price * quantity).toFixed(2)
+      });
+    });
+
+    return items;
+  }
+
+  // QUILTED NORTHERN/PETARMOR WALMART LOGIC
+  if (isQuiltedPetArmorWalmart) {
+    const items = [];
+
+    // Both products should appear with quantity of 3
+    products.forEach(product => {
+      const itemNumber = getRandomInt(10000000, 99999999);
+      const quantity = 3; // Fixed quantity
       const price = priceWithVariance(product.price);
       items.push({
         itemNumber,

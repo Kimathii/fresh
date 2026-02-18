@@ -51,7 +51,7 @@ const formatDate = () => {
 const generateItems = (products, brandName) => {
   // Check if this is the "One Touch" Walmart by looking for a characteristic product
   // "One Touch Verio Reflect" is the first item in the One Touch list.
-  const isVitalProteinsWalmart = brandName === "Walmart" && products.some(p => p.name.includes("One Touch"));
+  const isVitalProteinsWalmart = brandName === "Walmart" && products.some(p => p.name.includes("OneTouch"));
 
   // Check if this is the "Quilted Northern/PetArmor" Walmart
   const isQuiltedPetArmorWalmart = brandName === "Walmart" && products.some(p => p.name.includes("Quilted Northern"));

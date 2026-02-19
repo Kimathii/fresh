@@ -143,11 +143,6 @@ const companies = [
   // 
   // 
   // 
-
-
-
-
-
   {
     store: "Walmart",
     name: "Walmart",

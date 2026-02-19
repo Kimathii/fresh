@@ -162,12 +162,12 @@ const companies = [
     products: [
       { name: "Quilted Northern Toilet Paper", price: 26.99 },
       // 
-      { name: "Extreme Stain & Odor Elimination Spray, 32oz", price: 14.99 },
-      { name: "Litter Box Odor Eliminator, 12oz", price: 10.99 },
-      { name: "Oxy Stain Remover Spray, 32oz", price: 13.99 },
-      { name: "Stain & Odor Eliminator, 1 gallon", price: 33.99 },
-      { name: "Stain & Odor Eliminator, 24oz", price: 11.99 },
-      { name: "Stain & Odor Eliminator, 32oz", price: 14.99 }
+      { name: "Rocco & Poxie Extreme Stain & Odor Elimination Spray, 32oz", price: 27.99 },
+      { name: "Rocco & Poxie Litter Box Odor Eliminator, 12oz", price: 26.99 },
+      { name: "Rocco & Poxie Oxy Stain Remover Spray, 32oz", price: 33.99 },
+      { name: "Rocco & Poxie Stain & Odor Eliminator, 1 gallon", price: 33.99 },
+      { name: "Rocco & Poxie Stain & Odor Eliminator, 24oz", price: 28.99 },
+      { name: "Rocco & Poxie Stain & Odor Eliminator, 32oz", price: 30.99 }
 
     ]
   },

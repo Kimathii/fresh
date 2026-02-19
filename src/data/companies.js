@@ -166,8 +166,14 @@ const companies = [
     ],
     products: [
       { name: "Quilted Northern Toilet Paper", price: 26.99 },
-      { name: "PetArmor Extend Flea and Tick Collar (For Cats)", price: 44.99 },
-      { name: "PetArmor Extend Flea and Tick Collar (For Dogs)", price: 44.99 },
+      // 
+      { name: "Extreme Stain & Odor Elimination Spray, 32oz", price: 14.99 },
+      { name: "Litter Box Odor Eliminator, 12oz", price: 10.99 },
+      { name: "Oxy Stain Remover Spray, 32oz", price: 13.99 },
+      { name: "Stain & Odor Eliminator, 1 gallon", price: 33.99 },
+      { name: "Stain & Odor Eliminator, 24oz", price: 11.99 },
+      { name: "Stain & Odor Eliminator, 32oz", price: 14.99 }
+
     ]
   },
 
@@ -234,30 +240,30 @@ const companies = [
   // ]
   //   },
 
-  {
-    store: "Coffee & Beverages",
-    name: "Sam's Club",
-    slogan: "Great brands. Members. Savings.",
-    phone: "(888) 746-7726",
-    locations: [
-      { address: "1225 Concord Ave, Concord, CA 94520", state: "CA" },
-      { address: "8250 Power Inn Rd, Sacramento, CA 95828", state: "CA" },
-      { address: "6336 College Grove Way, San Diego, CA 92115", state: "CA" },
-      { address: "150 E 42nd St, New York, NY 10017", state: "NY" },
-      { address: "250 Summer St, Boston, MA 02210", state: "MA" },
-      { address: "600 N Michigan Ave, Chicago, IL 60611", state: "IL" },
-      { address: "7147 Greenback Ln, Citrus Heights, CA 95621", state: "CA" }
-    ],
-    products: [
-      { name: "VET-IQ Hip and Joint, 180ct", price: 27.99 },
-      { name: "VET-IQ Pro-Biotic, 60 ct", price: 17.99 },
-      { name: "VET-IQ Multivitamin, 60 ct", price: 15.49 },
+  // {
+  //   store: "Coffee & Beverages",
+  //   name: "Sam's Club",
+  //   slogan: "Great brands. Members. Savings.",
+  //   phone: "(888) 746-7726",
+  //   locations: [
+  //     { address: "1225 Concord Ave, Concord, CA 94520", state: "CA" },
+  //     { address: "8250 Power Inn Rd, Sacramento, CA 95828", state: "CA" },
+  //     { address: "6336 College Grove Way, San Diego, CA 92115", state: "CA" },
+  //     { address: "150 E 42nd St, New York, NY 10017", state: "NY" },
+  //     { address: "250 Summer St, Boston, MA 02210", state: "MA" },
+  //     { address: "600 N Michigan Ave, Chicago, IL 60611", state: "IL" },
+  //     { address: "7147 Greenback Ln, Citrus Heights, CA 95621", state: "CA" }
+  //   ],
+  //   products: [
+  //     { name: "VET-IQ Hip and Joint, 180ct", price: 27.99 },
+  //     { name: "VET-IQ Pro-Biotic, 60 ct", price: 17.99 },
+  //     { name: "VET-IQ Multivitamin, 60 ct", price: 15.49 },
 
-      { name: "Liquid I.V Electrolyte Drink Mix,(Popsicle Firecracker) 30ct", price: 27.99 },
-      { name: "Liquid I.V Electrolyte Drink Mix,(Sugar-Free Energy Variety Pack) 30ct", price: 27.99 },
-      { name: "Liquid I.V Electrolyte Drink Mix,(Hydration Multiplier Variety Pack) 30ct", price: 27.99 },
-    ]
-  },
+  //     { name: "Liquid I.V Electrolyte Drink Mix,(Popsicle Firecracker) 30ct", price: 27.99 },
+  //     { name: "Liquid I.V Electrolyte Drink Mix,(Sugar-Free Energy Variety Pack) 30ct", price: 27.99 },
+  //     { name: "Liquid I.V Electrolyte Drink Mix,(Hydration Multiplier Variety Pack) 30ct", price: 27.99 },
+  //   ]
+  // },
 
   // {
   //   store: "Dog Food",

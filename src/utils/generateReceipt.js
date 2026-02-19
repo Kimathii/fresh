@@ -121,18 +121,34 @@ const generateItems = (products, brandName) => {
   if (isQuiltedPetArmorWalmart) {
     const items = [];
 
-    // Both products should appear with quantity of 3
-    products.forEach(product => {
-      const itemNumber = getRandomInt(10000000, 99999999);
-      const quantity = 3; // Fixed quantity
-      const price = priceWithVariance(product.price);
-      items.push({
-        itemNumber,
-        name: product.name,
-        quantity,
-        price,
-        total: +(price * quantity).toFixed(2)
-      });
+    // Quilted Northern is always index 0; others are the rest
+    const quiltedNorthern = products[0];
+    const otherProducts = products.slice(1);
+
+    // Quilted Northern always gets quantity 3
+    const qnItemNumber = getRandomInt(10000000, 99999999);
+    const qnPrice = priceWithVariance(quiltedNorthern.price);
+    items.push({
+      itemNumber: qnItemNumber,
+      name: quiltedNorthern.name,
+      quantity: 3,
+      price: qnPrice,
+      total: +(qnPrice * 3).toFixed(2)
+    });
+
+    // Randomly pick one "other" product to also get quantity 3
+    const otherCopy = [...otherProducts];
+    const tripleIndex = getRandomInt(0, otherCopy.length - 1);
+    const tripleProduct = otherCopy[tripleIndex];
+
+    const tripleItemNumber = getRandomInt(10000000, 99999999);
+    const triplePrice = priceWithVariance(tripleProduct.price);
+    items.push({
+      itemNumber: tripleItemNumber,
+      name: tripleProduct.name,
+      quantity: 3,
+      price: triplePrice,
+      total: +(triplePrice * 3).toFixed(2)
     });
 
     return items;
